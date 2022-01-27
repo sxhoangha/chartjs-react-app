@@ -1,0 +1,29 @@
+.page {
+  display: flex;
+  margin: 5rem;
+  .box {
+    display: flex;
+    width: 40rem;
+    height: 27rem;
+    box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.3);
+    margin: 3rem;
+    .chartjs-size-monitor {
+      width: 25rem !important;
+      height: 22rem !important;
+      margin: auto;
+    }
+    .outerUl {
+      padding: 0;
+      list-style-type: none;
+      .innerUl {
+        margin-left: 3rem;
+        li {
+          width: 5rem;
+        }
+      }
+      .statusLabel {
+        cursor: pointer;
+      }
+    }
+  }
+}
