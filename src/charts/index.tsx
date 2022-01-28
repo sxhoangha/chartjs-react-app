@@ -25,30 +25,30 @@ const Charts = () => {
     },
   };
 
-  const generateLabelsPriority = (chart) => {
-    const { datasets = [], labels = [] } = chart?.config?.data;
-    const labelsArray = [];
+  // const generateLabelsPriority = (chart) => {
+  //   const { datasets = [], labels = [] } = chart?.config?.data;
+  //   const labelsArray = [];
 
-    datasets.forEach((dataset) => {
-      labels.forEach((label) => {
-        labelsArray.push(`${dataset.label}-${label}`);
-      });
-    });
+  //   datasets.forEach((dataset) => {
+  //     labels.forEach((label) => {
+  //       labelsArray.push(`${dataset.label}-${label}`);
+  //     });
+  //   });
 
-    let datasetColors = chart?.data?.datasets?.map(
-      (dataset) => dataset.backgroundColor
-    );
-    datasetColors = datasetColors.flat();
+  //   let datasetColors = chart?.data?.datasets?.map(
+  //     (dataset) => dataset.backgroundColor
+  //   );
+  //   datasetColors = datasetColors.flat();
 
-    return labelsArray.map((label, index) => ({
-      text: label,
-      datasetIndex: label.includes(PriorityStatus.Open) ? 0 : 1,
-      hidden: !chart.isDatasetVisible(
-        label.includes(PriorityStatus.Open) ? 0 : 1
-      ),
-      fillStyle: datasetColors[index],
-    }));
-  };
+  //   return labelsArray.map((label, index) => ({
+  //     text: label,
+  //     datasetIndex: label.includes(PriorityStatus.Open) ? 0 : 1,
+  //     hidden: !chart.isDatasetVisible(
+  //       label.includes(PriorityStatus.Open) ? 0 : 1
+  //     ),
+  //     fillStyle: datasetColors[index],
+  //   }));
+  // };
 
   const getTooltipsLabelsPriority = (item, data) =>
     `${data.datasets[item.datasetIndex].label} - ${data.labels[item.index]}: ${
@@ -59,17 +59,17 @@ const Charts = () => {
     ...doughnutChartOptions,
     legend: {
       display: false,
-      position: "right",
-      labels: {
-        generateLabels: generateLabelsPriority,
-      },
-      onClick: (mouseEvent, legendItem) => {
-        const ci = priorityChartRef?.current?.chartInstance;
-        ci.getDatasetMeta(legendItem.datasetIndex).hidden = ci.isDatasetVisible(
-          legendItem.datasetIndex
-        );
-        ci.update();
-      },
+      // position: "right",
+      // labels: {
+      //   generateLabels: generateLabelsPriority,
+      // },
+      // onClick: (mouseEvent, legendItem) => {
+      //   const ci = priorityChartRef?.current?.chartInstance;
+      //   ci.getDatasetMeta(legendItem.datasetIndex).hidden = ci.isDatasetVisible(
+      //     legendItem.datasetIndex
+      //   );
+      //   ci.update();
+      // },
     },
     tooltips: {
       callbacks: {
